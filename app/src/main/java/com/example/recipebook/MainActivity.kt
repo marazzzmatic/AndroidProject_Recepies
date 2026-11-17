@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadRecipes()
+    }
+
     private fun loadRecipes() {
         val recipes = repository.getAllRecipes()
         adapter.updateData(recipes)

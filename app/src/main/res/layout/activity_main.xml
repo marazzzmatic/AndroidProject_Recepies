@@ -10,20 +10,23 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecipes"
         android:layout_height="0dp"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btnAdd"
         />
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Готово"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Добавить рецепт"
+        android:layout_margin="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

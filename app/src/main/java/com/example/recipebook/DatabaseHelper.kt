@@ -76,6 +76,24 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return recipeList
     }
 
+    // READ еще один метод чтения. Получаем элемент по айди
+    fun getRecipeById(id: Long): Recipe? {
+        val db = this.readableDatabase
+        val cursor = db.query(TABLE_NAME, null, "$COLUMN_ID = ?", arrayOf(id.toString()), null, null, null)
+        var recipe: Recipe? = null
+
+        if (cursor.moveToFirst()) {
+            val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+            val ingredients = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_INGREDIENTS)) ?: ""
+            val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+            val cookingTime = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_TIME))
+            recipe = Recipe(id, title, ingredients, content, cookingTime)
+        }
+        cursor.close()
+        db.close()
+        return recipe
+    }
+
     // UPDATE (Обновление)
     fun updateRecipe(recipe: Recipe): Int {
         val db = this.writableDatabase

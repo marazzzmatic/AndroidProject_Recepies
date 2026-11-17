@@ -7,4 +7,5 @@ class RecipeRepository(context: android.content.Context) {
     fun updateRecipe(recipe: Recipe) = dbHelper.updateRecipe(recipe)
     fun deleteRecipe(recipeId: Long) = dbHelper.deleteRecipe(recipeId)
     fun getAllRecipes(): List<Recipe> = dbHelper.getAllRecipes()
+    fun getRecipeById(id: Long): Recipe? = dbHelper.getRecipeById(id)
 }
