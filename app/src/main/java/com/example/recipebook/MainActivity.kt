@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadRecipes() {
         val recipes = repository.getAllRecipes()
+        android.util.Log.d("RecipeDebug", "Loaded ${recipes.size}: ${recipes.map { it.title }}")
         adapter.updateData(recipes)
     }
 

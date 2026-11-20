@@ -50,9 +50,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             put(COLUMN_CONTENT, recipe.content)
             put(COLUMN_TIME, recipe.cookingTime)
         }
-        val id = db.insert(TABLE_NAME, null, values)
-        db.close()
-        return id
+        return db.insert(TABLE_NAME, null, values)
     }
 
     // READ (Получение всех рецептов)
@@ -72,7 +70,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             recipeList.add(recipe)
         }
         cursor.close()
-        db.close()
         return recipeList
     }
 

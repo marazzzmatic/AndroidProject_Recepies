@@ -17,6 +17,8 @@ class AddEditActivity : AppCompatActivity() {
 
     private var recipeId: Long = -1
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_edit)
@@ -37,6 +39,8 @@ class AddEditActivity : AppCompatActivity() {
         btnSave.setOnClickListener {
             saveRecipe()
         }
+
+
     }
 
     private fun loadRecipeData() {
